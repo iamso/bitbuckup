@@ -11,12 +11,12 @@ require('dotenv').config();
 
 console.log(figlet.textSync('BitbuckUp').blue);
 console.log('');
-if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.USERNAME) {
+if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.USERNAMES) {
   console.log('.env file is missing or incomplete'.bold.red);
   console.log(`Make sure your .env file exists and contains the following variables:
 CLIENT_ID=12345
 CLIENT_SECRET=abcdef
-USERNAME=user`)
+USERNAMES=user`)
   process.exit(1);
 }
 
@@ -25,12 +25,12 @@ if (!shell.which('git')) {
   process.exit(1);
 }
 
-const users = process.env.USERNAME.split(/,\s*/).map(value => value.trim());
+const users = process.env.USERNAMES.split(/,\s*/).map(value => value.trim());
 
 const baseUrl = `https://api.bitbucket.org/2.0/`
 const authUrl = 'https://bitbucket.org/site/oauth2/access_token';
 // const authUrl = 'https://req.dev.so';
-// const repoUrl = `${baseUrl}repositories/${process.env.USERNAME}`;
+// const repoUrl = `${baseUrl}repositories/${process.env.USERNAMES}`;
 
 const authData = 'grant_type=client_credentials';
 const authHeader = {
