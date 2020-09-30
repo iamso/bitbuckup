@@ -20,7 +20,7 @@ Create a `.env` file in the folder you want the backups to be created, containin
 ```bash
 CLIENT_ID=12345
 CLIENT_SECRET=abcdef
-USERNAME=user1,user2,team1,team2
+USERNAMES=user1,user2,team1,team2
 ```
 
 Then open a terminal with that folder and run:
